@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/51c49552-04a5-4429-9f69-e729726b0055/deploy-status)](https://notejs.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96920f2a-4512-4539-a187-da4148c47651/deploy-status)](https://auto-escola-senna.netlify.app/)
 
 <h1>Auto Escola Senna - Curso React Profissional</h1>
 <p>
