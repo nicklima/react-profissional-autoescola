@@ -1,0 +1,26 @@
+{
+  "nick": [
+    {
+      "item": "Siga no Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/nick_linux"
+    },
+    {
+      "item": "Siga no Linkedin",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/nicklima/"
+    }
+  ],
+  "bruno": [
+    {
+      "item": "Siga no Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/megatroom"
+    },
+    {
+      "item": "Siga no Linkedin",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/brunonardini/"
+    }
+  ]
+}

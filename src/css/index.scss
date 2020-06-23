@@ -1,0 +1,470 @@
+@import "mixin";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital@1&family=Staatliches&display=swap");
+
+$color-primary: #03a9f4;
+$color-white: #fff;
+$color-text: #1c1c1c;
+$color-bg: #f5f5f5;
+$color-success: #4caf50;
+$color-error: #f44336;
+$app-padding: 20px;
+$container-max-width: 680px;
+$font-header: "Staatliches";
+$font-default: "Raleway";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $color-bg;
+  font-family: $font-default;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+// Header
+.header {
+  @include box-shadow(2);
+  background-color: $color-white;
+  color: $color-text;
+  font-family: "MuseoModerno", cursive;
+  height: 100px;
+  margin-bottom: 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
+  &__container {
+    padding: 0 $app-padding;
+  }
+
+  &__menuWrap {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    & h1 {
+      cursor: pointer;
+      flex: 1;
+      font-family: $font-header;
+      transition: all 0.5s;
+
+      &:hover {
+        color: $color-error;
+      }
+
+      & span {
+        width: auto;
+      }
+    }
+  }
+}
+
+.btnNav {
+  align-items: center;
+  background: $color-text;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  justify-self: flex-end;
+  margin-right: 10px;
+  outline: none;
+  transition: 0.5s all;
+  transition-delay: 0.3s;
+  width: 30px;
+
+  &:hover {
+    & span {
+      &:nth-child(2),
+      &:nth-child(3) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__holder {
+    width: 20px;
+    pointer-events: none;
+
+    & span {
+      background: $color-white;
+      border-radius: 5px;
+      display: block;
+      height: 4px;
+      margin-top: 3px;
+      pointer-events: none;
+      transition: 0.5s all;
+      width: 100%;
+
+      &:nth-child(2) {
+        width: 70%;
+      }
+
+      &:nth-child(3) {
+        width: 0%;
+      }
+    }
+
+    &--open {
+      & span {
+        &:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          width: 100%;
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.sideMenu {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  transition: 0.5s all;
+  visibility: hidden;
+  width: 100%;
+  z-index: 2;
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__menu {
+    background: $color-text;
+    height: 100%;
+    max-width: 320px;
+    position: fixed;
+    transform: translateX(-100%);
+    transition: 0.5s all;
+    width: 40%;
+    z-index: 2;
+
+    &--show {
+      transform: translateX(0);
+    }
+
+    & ul {
+      padding: 20px;
+      list-style: none;
+    }
+
+    & ul li {
+      border-bottom: 1px solid;
+      color: $color-white;
+      cursor: pointer;
+      padding: 10px 0;
+
+      & a {
+        opacity: 0.9;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Headline
+.headline {
+  border-bottom: 1px solid;
+  margin-bottom: 45px;
+  text-align: left;
+}
+
+// About
+.about {
+  text-align: center;
+
+  a {
+    color: $color-primary;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($color-primary, 15%);
+    }
+  }
+
+  h1 {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  h2 {
+    margin-top: 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+}
+
+// Social
+.socialWrap {
+  list-style: none;
+  text-align: center;
+
+  & li {
+    background-color: $color-primary;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 15px;
+    height: 40px;
+    line-height: 45px;
+    transition: 0.5s all;
+    text-align: center;
+    width: 40px;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+      border-color: darken($color-primary, 10%);
+    }
+
+    & a {
+      color: $color-white;
+      display: block;
+    }
+  }
+
+  & svg {
+    fill: $color-white !important;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+// Notes
+.error {
+  text-align: center;
+
+  &__btn {
+    background-color: $color-primary;
+    border: 0;
+    color: $color-white;
+    cursor: pointer;
+    outline: none;
+    padding: 10px 12px;
+  }
+}
+
+.button {
+  align-items: center;
+  background: $color-primary;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  margin: 0 0 0 2px;
+  outline: none;
+  transition: 0.5s all;
+  width: 25px;
+
+  & span {
+    font-size: 15px;
+  }
+
+  &:hover {
+    background: darken($color-primary, 15%);
+    color: white;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  & svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &--saving {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &--loading {
+    opacity: 0;
+    visibility: hidden;
+
+    & svg {
+      @include animaLoad;
+    }
+  }
+
+  &--error {
+    background-color: $color-error;
+  }
+
+  &--show {
+    opacity: 1;
+    transition: 0.5s all;
+    visibility: visible;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-max-width;
+  padding: $app-padding;
+}
+
+.wrapper {
+  margin-top: 100px;
+}
+
+.new-note {
+  @include box-shadow(1);
+  background-color: $color-white;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &__input {
+    border: none;
+    font-family: "Raleway";
+    font-size: 15px;
+    padding: 15px;
+    outline: none;
+    width: 100%;
+  }
+}
+
+.note-list {
+  margin: 40px 0;
+}
+
+.note {
+  @include box-shadow(2);
+  align-items: center;
+  background-color: $color-white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 10px 12px;
+
+  &__text {
+    flex: 1;
+  }
+
+  &__input {
+    border-color: $color-bg;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 16px;
+    flex: 1;
+    line-height: 25px;
+    outline: none;
+    padding: 0;
+  }
+
+  &__btnWrap {
+    display: flex;
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    @extend .button;
+
+    &--save {
+      background-color: $color-success;
+    }
+
+    &--close {
+      background-color: $color-error;
+    }
+
+    &--up {
+      & svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Button Sistem
+.sistemButtons {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: $color-text;
+      color: $color-white;
+
+      & svg,
+      & svg * {
+        fill: $color-white !important;
+      }
+    }
+
+    & svg {
+      height: 80px;
+      width: 80px;
+    }
+
+    & span {
+      margin-top: 20px;
+    }
+  }
+}
